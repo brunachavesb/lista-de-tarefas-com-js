@@ -14,10 +14,20 @@ function addTarefa() {
             ${valorInput}
         </div>
         <div class="item-botao">
-            <button class="delete"><i class="mdi mdi-delete"></i>Deletar</button>
+            <button onclick="deletar()" class="delete"><i class="mdi mdi-delete"></i>Deletar</button>
         </div>
     </div>`;
 
     main.innerHTML += novoItem;
+
+    input.value = "";
+    input.focus();
     }
 }
+
+input.addEventListener("keyup", function (event) {
+    if(event.keyCode === 13) {
+        event.preventDefault();
+        btnAdd.click();
+    }
+})
